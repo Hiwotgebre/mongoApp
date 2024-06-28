@@ -5,6 +5,7 @@ const userRoutes = require('./routes/userRoutes'); // Adjust the path as necessa
 // Import routers
 // const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
+const commentRoutes = require('./routes/commentRoutes');
 
 
 // Initialize the Express application
@@ -20,6 +21,7 @@ app.use(userRoutes);     // Your custom router
 // Use routes
 // app.use('/users', userRoutes);
 // app.use('/posts', postRoutes);
+//app.use('/comments', commentRoutes);
 
 // Define a sample route for testing if the server is running
 app.get('/', (req, res) => {
