@@ -1,9 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const userRoutes = require('./routes/userRoutes'); // Adjust the path as necessary
 
 // Import routers
-const userRouter = require('./routes/userRouter');
-const postRouter = require('./routes/postRouter');
+// const userRoutes = require('./routes/userRoutes');
+const postRoutes = require('./routes/postRoutes');
 
 
 // Initialize the Express application
@@ -12,9 +13,13 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());  // For parsing application/json
 
+app.use(express.json()); // Built-in middleware to parse JSON bodies
+app.use(userRoutes);     // Your custom router
+
+
 // Use routes
-app.use('/users', userRouter);
-app.use('/posts', postRouter);
+// app.use('/users', userRoutes);
+// app.use('/posts', postRoutes);
 
 // Define a sample route for testing if the server is running
 app.get('/', (req, res) => {
